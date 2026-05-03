@@ -23,7 +23,16 @@ import { getAllProducts } from "@/services/products.services";
 import { CategoryI } from "@/types/categories";
 import { ProductI } from "@/types/products";
 
-export const dynamic = "force-dynamic";
+// export const dynamic = "force-dynamic";
+
+export async function generateStaticParams() {
+  const categoriesResponse = await getAllCategories();
+  const categories: CategoryI[] = categoriesResponse.data;
+
+  return categories.map((category) => ({
+    categoryId: category._id,
+  }));
+}
 
 interface CategoryPageProps {
   params: Promise<{

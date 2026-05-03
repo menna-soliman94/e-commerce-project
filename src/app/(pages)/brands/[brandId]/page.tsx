@@ -23,7 +23,16 @@ import { getAllProducts } from "@/services/products.services";
 import { BrandI } from "@/types/brands";
 import { ProductI } from "@/types/products";
 
-export const dynamic = "force-dynamic";
+// export const dynamic = "force-dynamic";
+
+export async function generateStaticParams() {
+  const brandsResponse = await getAllBrands();
+  const brands: BrandI[] = brandsResponse.data;
+
+  return brands.map((brand) => ({
+    brandId: brand._id,
+  }));
+}
 
 interface BrandPageProps {
   params: Promise<{

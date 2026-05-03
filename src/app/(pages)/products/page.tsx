@@ -13,7 +13,7 @@ import Link from "next/link";
 import AddToCartButton from "@/components/common/add-to-cart-button";
 import WishlistButton from "@/components/common/wishlist-button";
 
-export const dynamic = "force-dynamic";
+// export const dynamic = "force-dynamic";
 
 export default async function Products() {
   const { data } = await getAllProducts();

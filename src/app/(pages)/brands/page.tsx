@@ -4,7 +4,7 @@ import { Card } from "@/components/ui/card";
 import { getAllBrands } from "@/services/brands.services";
 import { BrandI } from "@/types/brands";
 
-export const dynamic = "force-dynamic";
+// export const dynamic = "force-dynamic";
 
 export default async function Brands() {
   const { data } = await getAllBrands();

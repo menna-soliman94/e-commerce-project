@@ -4,7 +4,7 @@ import { Card } from "@/components/ui/card";
 import { getAllCategories } from "@/services/categories.services";
 import { CategoryI } from "@/types/categories";
 
-export const dynamic = "force-dynamic";
+// export const dynamic = "force-dynamic";
 
 export default async function Categories() {
   const { data } = await getAllCategories();

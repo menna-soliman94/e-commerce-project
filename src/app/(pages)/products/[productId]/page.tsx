@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ProductI } from "@/types/products";
-import { getSpecificProduct } from "@/services/products.services";
+import { getAllProducts, getSpecificProduct } from "@/services/products.services";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -28,7 +28,16 @@ import React from "react";
 import AddToCartButton from "@/components/common/add-to-cart-button";
 import WishlistButton from "@/components/common/wishlist-button";
 
-export const dynamic = "force-dynamic";
+// export const dynamic = "force-dynamic";
+
+export async function generateStaticParams() {
+  const { data } = await getAllProducts();
+  const products: ProductI[] = data;
+
+  return products.map((product) => ({
+    productId: product._id,
+  }));
+}
 
 interface ProductIdType {
   productId: string;
