@@ -2,7 +2,7 @@ const API_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
 async function getAllProducts() {
   const response = await fetch(`${API_URL}/products`, {
-    cache: "no-store",
+    cache: "force-cache",
   });
   const data = await response.json();
 
@@ -12,7 +12,7 @@ export { getAllProducts };
 
 async function getSpecificProduct(id: string) {
   const response = await fetch(`${API_URL}/products/${id}`, {
-    cache: "no-store",
+    cache: "force-cache",
   });
   const data = await response.json();
 
