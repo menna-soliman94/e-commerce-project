@@ -1,9 +1,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
-  reactCompiler: true,
+  output: "export",
+  basePath: "/e-commerce-project",
+  assetPrefix: "/e-commerce-project/",
   images: {
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: "https",
